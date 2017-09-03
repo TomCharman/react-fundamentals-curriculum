@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getCurrentWeather } from '../utils/weatherApi';
+import { withRouter } from 'react-router-dom';
 
 class LocationChooser extends React.Component {
   static propTypes = {
@@ -24,11 +24,7 @@ class LocationChooser extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(this.state.search);
-
-    const weather = await getCurrentWeather(this.state.search);
-
-    console.log(weather);
+    this.props.history.push('/forecast?city=' + this.state.search);
   }
 
   render(props) {
@@ -54,4 +50,4 @@ class LocationChooser extends React.Component {
   }
 }
 
-export default LocationChooser;
+export default withRouter(LocationChooser);

@@ -72,3 +72,36 @@ html, body, #app, .container, #app>div {
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
+
+/* Forecast */
+h1.contentHeading {
+  text-align: center;
+  font-weight: 200;
+  font-size: 60px;
+}
+
+.forecast {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forecast .forecastElement {
+  display: flex;
+  margin: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.forecastElement h2 {
+  font-weight: 200;
+  font-size: 26px;
+}
+
+.forecastElement img {
+  height: 120px;
+}

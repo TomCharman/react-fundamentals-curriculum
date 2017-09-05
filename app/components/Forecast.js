@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { getForecast } from '../utils/weatherApi';
 import queryString from 'query-string';
+import ForecastElement from './ForecastElement';
 
 class Forecast extends React.Component {
   state = {
@@ -41,13 +42,14 @@ class Forecast extends React.Component {
     return (
       <div>
         <Header title='Clever Title' />
-        <h1>{city}</h1>
+        <h1 className='contentHeading'>{city}</h1>
         <ul className='forecast'>
         {forecast.map((weather) => {
           return (
-            <li key={weather.dt_txt}>
-              {weather.dt_txt}
-            </li>
+            <ForecastElement
+              key={weather.dt_txt}
+              time={weather.dt_txt}
+              icon={weather.weather[0].icon} />
           )
         })}
         </ul>

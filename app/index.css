@@ -105,3 +105,14 @@ h1.contentHeading {
 .forecastElement img {
   height: 120px;
 }
+
+/* Details */
+.Details {
+  text-align: center;
+  padding: 30px;
+}
+
+.Details p {
+  font-weight: 200;
+  font-size: 32px;
+}

@@ -3,6 +3,7 @@ import Header from './Header';
 import { getForecast } from '../utils/weatherApi';
 import queryString from 'query-string';
 import ForecastElement from './ForecastElement';
+import { withRouter } from 'react-router-dom';
 
 class Forecast extends React.Component {
   state = {
@@ -27,6 +28,15 @@ class Forecast extends React.Component {
     }))
   }
 
+  handleClick = (city) => {
+    // Add the name to what we'll pass to detail view
+    city.name = this.state.city;
+    this.props.history.push({
+      pathname: '/detail/' + this.state.city,
+      state: city
+    })
+  }
+
   render() {
     const { loading, city, forecast } = this.state;
 
@@ -49,6 +59,7 @@ class Forecast extends React.Component {
             <ForecastElement
               key={weather.dt_txt}
               time={weather.dt_txt}
+              onClick={() => this.handleClick(weather)}
               icon={weather.weather[0].icon} />
           )
         })}
@@ -58,4 +69,4 @@ class Forecast extends React.Component {
   }
 }
 
-export default Forecast;
+export default withRouter(Forecast);

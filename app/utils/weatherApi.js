@@ -1,4 +1,5 @@
 const apiKey = 'c412865f852b53e7c39850735deb5352';
+const baseURL = 'http://api.openweathermap.org/data/2.5/';
 
 async function getData(url) {
   const response = await fetch(url);
@@ -13,13 +14,13 @@ function handleError (error) {
 }
 
 export async function getCurrentWeather (search) {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&type=accurate&APPID=${apiKey}`;
+  const url = `${baseURL}weather?q=${search}&type=accurate&APPID=${apiKey}`;
 
   return await getData(url);
 }
 
 export async function getForecast(search) {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${search}&type=accurate&APPID=${apiKey}&cnt=5`;
+  const url = `${baseURL}forecast?q=${search}&type=accurate&APPID=${apiKey}&cnt=5`;
 
   return await getData(url);
 }
